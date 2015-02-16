@@ -1,12 +1,5 @@
 print "hello java"
 import sys
-#import glob
-
-#for j in glob.glob('build/libs/WEB-INF/lib/*.jar'):
-#    print 'j', j
-#    sys.path.append(j)
-
-#print ":".join(sys.path)
 
 import org.springframework.batch.core.BatchStatus
 import org.springframework.batch.core.Job
@@ -38,7 +31,23 @@ import org.springframework.batch.core.step.tasklet.TaskletStep
 from org.springframework.batch.core.launch.support import CommandLineJobRunner
 
 class PrintTasklet(org.springframework.batch.core.step.tasklet.Tasklet):
-    pass
+
+    def execute( self, step_contribution, chunk_context):
+        # returns : RepeatStatus
+        # StepContribution aArg0
+        # ChunkContext aArg1 
+        print "PrintTasklet"
+        print "step_contribution:",step_contribution
+        print "chunk_context:",chunk_context
+
+        #hasGet = getDescrMethod(forClass, "__get__", OO) != null
+        #|| getDescrMethod(forClass, "_doget", PyObject.class) != null
+        #            || getDescrMethod(forClass, "_doget", OO) != null;
+        #hasSet = getDescrMethod(forClass, "__set__", OO) != null
+        #|| getDescrMethod(forClass, "_doset", OO) != null;
+        #hasDelete = getDescrMethod(forClass, "__delete__", PyObject.class) != null
+        #|| getDescrMethod(forClass, "_dodel", PyObject.class) != null;
+
 
 #import pdb
 

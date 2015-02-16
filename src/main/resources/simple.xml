@@ -2,29 +2,37 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 <import resource="applicationContext.xml"/>
+
 <bean id="hello" class="us.thefr33.spring.batch.PythonTask">
-<property name="message" value="Hello"/>
+  <property name="message" value="Hello"/>
+</bean>
+
+<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+  <property name="entityManagerFactory" ref="entityManagerFactory" />
 </bean>
 
 <bean id="taskletStep" abstract="true" class="org.springframework.batch.core.step.tasklet.TaskletStep">
-<property name="jobRepository" ref="jobRepository"/>
-<property name="transactionManager" ref="transactionManager"/>
+  <property name="jobRepository" ref="jobRepository"/>
+  <property name="transactionManager" ref="transactionManager"/>
 </bean>
+
 <bean id="simpleJob" class="org.springframework.batch.core.job.SimpleJob">
-<property name="name" value="simpleJob"/>
-<property name="steps">
-<list>
-<bean parent="taskletStep">
-<property name="tasklet" ref="hello"/>
-</bean>
-<bean parent="taskletStep">
-<property name="tasklet" ref="space"/>
-</bean>
-<bean parent="taskletStep">
-<property name="tasklet" ref="world"/>
-</bean>
-</list>
-</property>
-<property name="jobRepository" ref="jobRepository"/>
+  <property name="name" value="simpleJob"/>
+  <property name="steps">
+    <list>
+      <bean parent="taskletStep">
+        <property name="tasklet" ref="hello"/>
+      </bean>
+      <bean parent="taskletStep">
+        <property name="tasklet" ref="space"/>
+      </bean>
+      <bean parent="taskletStep">
+        <property name="tasklet" ref="world"/>
+      </bean>
+    </list>
+  </property>
+
+  <property name="jobRepository" ref="jobRepository"/>
+
 </bean>
 </beans>
