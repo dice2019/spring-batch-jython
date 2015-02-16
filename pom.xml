@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<!-- Your own application should inherit from spring-boot-starter-parent -->
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.0.2.RELEASE</version>
+	</parent>
+	<artifactId>batch-jython</artifactId>
+	<groupId>us.thefr33</groupId>
+	<name>Spring Boot Batch Sample</name>
+	<description>Spring Boot Batch Sample</description>
+	<version>1.0-SNAPSHOT</version>
+	<url>http://projects.spring.io/spring-boot/</url>
+	<organization>
+		<name>Pivotal Software, Inc.</name>
+		<url>http://www.spring.io</url>
+	</organization>
+	<properties>
+		<main.basedir>${basedir}/../..</main.basedir>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-batch</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+                <dependency>
+	          <groupId>org.python</groupId>
+	          <artifactId>jython</artifactId>
+	          <version>LATEST</version>
+                </dependency>
+
+
+    <!-- runtime group: 'org.springframework.boot'    , name: 'spring-boot-starter-batch', version : '+' -->
+    <!-- runtime group: 'org.springframework.boot'    , name: 'spring-boot-gradle-plugin', version : '+' -->
+
+    <!-- runtime group: 'org.python', name: 'jython-standalone', version : '+' -->
+
+    <!-- runtime group: 'org.python'    , name: 'jython', version : '+' -->
+    <!-- runtime group: 'org.postgresql', name: 'postgresql', version: '+' -->
+    <!-- runtime group: 'javax.batch'   , name: 'javax.batch-api', version: '+' -->
+    <!-- runtime group: 'org.slf4j'     , name: 'slf4j-api', version: '+' -->
+
+    <!-- runtime group: 'org.springframework', name: 'spring-core', version: '+' -->
+    <!-- runtime group: 'org.springframework', name: 'spring-beans', version: '+' -->
+    <!-- runtime group: 'org.springframework', name: 'spring-dao', version: '+' -->
+    <!-- runtime group: 'org.springframework', name: 'spring-jdbc', version: '+' -->
+    <!-- runtime group: 'org.springframework', name: 'spring-messaging', version: '+' -->
+
+    <!-- runtime group: 'org.springframework.batch', name: 'spring-batch-core', version: '+' -->
+    <!-- runtime group: 'org.springframework.batch', name: 'spring-batch-infrastructure', version: '+' -->
+    <!-- runtime group: 'org.springframework.data' , name:'spring-data-commons', version: '+' -->
+    <!-- runtime group: 'org.springframework.integration', name: -->
+    <!-- 'spring-integration-core', version: '+' -->
+
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
