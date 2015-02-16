@@ -30,7 +30,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
                 <dependency>
 	          <groupId>org.python</groupId>
 	          <artifactId>jython</artifactId>
@@ -52,14 +51,22 @@
     <!-- runtime group: 'org.springframework', name: 'spring-beans', version: '+' -->
     <!-- runtime group: 'org.springframework', name: 'spring-dao', version: '+' -->
     <!-- runtime group: 'org.springframework', name: 'spring-jdbc', version: '+' -->
-    <!-- runtime group: 'org.springframework', name: 'spring-messaging', version: '+' -->
+
 
     <!-- runtime group: 'org.springframework.batch', name: 'spring-batch-core', version: '+' -->
     <!-- runtime group: 'org.springframework.batch', name: 'spring-batch-infrastructure', version: '+' -->
-    <!-- runtime group: 'org.springframework.data' , name:'spring-data-commons', version: '+' -->
-    <!-- runtime group: 'org.springframework.integration', name: -->
-    <!-- 'spring-integration-core', version: '+' -->
+    <!-- runtime group: 'org.springframework.data' ,
+         name:'spring-data-commons', version: '+' -->
 
+	<dependency>
+	  <groupId>org.springframework.integration</groupId>
+	  <artifactId>spring-integration-core</artifactId>
+	</dependency>
+
+	<dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-messaging</artifactId>
+	</dependency>
 
 	</dependencies>
 	<build>
