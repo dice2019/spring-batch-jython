@@ -6,16 +6,16 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 </bean>
 <bean id="jobRepository" class="org.springframework.batch.core.repository.support.SimpleJobRepository">
 <constructor-arg>
-<bean class="org.springframework.batch.core.repository.dao.MapJobInstanceDao"/>
+<bean id='test1' class="org.springframework.batch.core.repository.dao.MapJobInstanceDao"/>
 </constructor-arg>
 <constructor-arg>
-<bean class="org.springframework.batch.core.repository.dao.MapJobExecutionDao"/>
+<bean id='test2' class="org.springframework.batch.core.repository.dao.MapJobExecutionDao"/>
 </constructor-arg>
 <constructor-arg>
-<bean class="org.springframework.batch.core.repository.dao.MapStepExecutionDao"/>
+<bean id='test3' class="org.springframework.batch.core.repository.dao.MapStepExecutionDao"/>
 </constructor-arg>
 <constructor-arg>
-<bean class="org.springframework.batch.core.repository.dao.MapExecutionContextDao"/>
+<bean id='test4' class="org.springframework.batch.core.repository.dao.MapExecutionContextDao"/>
 </constructor-arg>
 </bean>
 <bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>

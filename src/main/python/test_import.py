@@ -1,7 +1,7 @@
 import glob
 import sys
 for j in glob.glob('target/dependency/*.jar'):
-    #print 'j', j
+    print 'j', j
     sys.path.append(j)
 
 print ":".join(sys.path)
