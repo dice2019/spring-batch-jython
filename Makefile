@@ -2,6 +2,9 @@
 package:
 	~/.local/apache-maven-3.2.5/bin/mvn package
 
+sources:
+	~/.local/apache-maven-3.2.5/bin/mvn dependency:sources
+
 deps:
 	~/.local/apache-maven-3.2.5/bin/mvn dependency:copy-dependencies
 

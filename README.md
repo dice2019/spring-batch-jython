@@ -4,5 +4,6 @@ this is a work in progress
 
 to use :
 
-make deps
+make deps to create the deps.
 
+make test to test the python interface
