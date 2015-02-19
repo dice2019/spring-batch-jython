@@ -7,14 +7,13 @@ import java.util.Arrays;
  * http://code.google.com/p/unsprung/
 see https://github.com/cbushell/spring-batch-play/blob/49a85c4d6d52d9cbc2a074f514db467f2398a5ba/src/main/java/foo/bar/baz/SimpleBatchFlow.java
  */
-public class SpringContext {
+public class MySpringContext {
 
-	org.springframework.batch.core.repository.support.SimpleJobRepository bean_jobRepository;	// /mnt/data/home/mdupont/experiments/java/batch-jython/src/main/resources/applicationContext.xml
-	org.springframework.batch.core.job.SimpleJob bean_simpleJob;	// /mnt/data/home/mdupont/experiments/java/batch-jython/src/main/resources/simple.xml
+	private org.springframework.batch.core.job.SimpleJob bean_simpleJob;	// /mnt/data/home/mdupont/experiments/java/batch-jython/src/main/resources/simple.xml
 	us.thefr33.batch.PythonTasklet bean_hello;	// /mnt/data/home/mdupont/experiments/java/batch-jython/src/main/resources/simple.xml
 
 
-	public SpringContext(
+	public MySpringContext(
                              org.springframework.batch.core.repository.JobRepository 
                              bean_jobRepository,
                              org.springframework.transaction.PlatformTransactionManager bean_transactionManager
@@ -26,10 +25,10 @@ public class SpringContext {
                     org.springframework.batch.core.launch.support.SimpleJobLauncher bean_jobLauncher;	// /mnt/data/home/mdupont/experiments/java/batch-jython/src/main/resources/applicationContext.xml
                     org.springframework.batch.core.step.tasklet.TaskletStep bean_taskletStep;	// /mnt/data/home/mdupont/experiments/java/batch-jython/src/main/resources/simple.xml
                     //bean_jobRepository = new org.springframework.batch.core.repository.support.SimpleJobRepository( );
-			bean_simpleJob = new org.springframework.batch.core.job.SimpleJob( );
-			bean_simpleJob.setJobRepository( bean_jobRepository );
+			setBean_simpleJob(new org.springframework.batch.core.job.SimpleJob( ));
+			getBean_simpleJob().setJobRepository( bean_jobRepository );
 
-			bean_simpleJob.setName( "simpleJob" );
+			getBean_simpleJob().setName( "simpleJob" );
 
 
 			bean_hello = new us.thefr33.batch.PythonTasklet( );
@@ -47,12 +46,22 @@ public class SpringContext {
                                                                                         new org.springframework.batch.core.Step[] 
                                                          { bean_taskletStep });
 
-                        bean_simpleJob.setSteps(steps);
+                        getBean_simpleJob().setSteps(steps);
 
 
 		} catch(Throwable t) {
 			t.printStackTrace();
 		}
 
+	}
+
+
+	org.springframework.batch.core.job.SimpleJob getBean_simpleJob() {
+		return bean_simpleJob;
+	}
+
+
+	void setBean_simpleJob(org.springframework.batch.core.job.SimpleJob bean_simpleJob) {
+		this.bean_simpleJob = bean_simpleJob;
 	}
 }
