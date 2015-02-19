@@ -6,18 +6,18 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 </bean>
 
 <bean id="taskletStep" abstract="true" class="org.springframework.batch.core.step.tasklet.TaskletStep">
-<property name="jobRepository" ref="jobRepository"/>
-<property name="transactionManager" ref="transactionManager"/>
+  <property name="jobRepository" ref="jobRepository"/>
+  <property name="transactionManager" ref="transactionManager"/>
 </bean>
 <bean id="simpleJob" class="org.springframework.batch.core.job.SimpleJob">
-<property name="name" value="simpleJob"/>
-<property name="steps">
-<list>
-<bean parent="taskletStep">
-<property name="tasklet" ref="hello"/>
-</bean>
-</list>
-</property>
-<property name="jobRepository" ref="jobRepository"/>
+  <property name="name" value="simpleJob"/>
+  <property name="steps">
+    <list>
+      <bean parent="taskletStep">
+        <property name="tasklet" ref="hello"/>
+      </bean>
+    </list>
+  </property>
+  <property name="jobRepository" ref="jobRepository"/>
 </bean>
 </beans>
