@@ -32,6 +32,7 @@ public class MySpringContext {
 
 
 			bean_hello = new us.thefr33.batch.PythonTasklet( );
+			
 			bean_jobLauncher = new org.springframework.batch.core.launch.support.SimpleJobLauncher( );
 			bean_jobLauncher.setJobRepository( bean_jobRepository );
 
@@ -39,12 +40,13 @@ public class MySpringContext {
 			bean_taskletStep = new org.springframework.batch.core.step.tasklet.TaskletStep( );
 			bean_taskletStep.setJobRepository( bean_jobRepository );
 			bean_taskletStep.setTransactionManager( bean_transactionManager );
-                        bean_taskletStep.setTasklet( bean_hello );
+			bean_taskletStep.setName("Call Hello");
+            bean_taskletStep.setTasklet( bean_hello );
 
 
-                        List<org.springframework.batch.core.Step> steps = Arrays.asList(
-                                                                                        new org.springframework.batch.core.Step[] 
-                                                         { bean_taskletStep });
+            List<org.springframework.batch.core.Step> steps = Arrays.asList(
+            		new org.springframework.batch.core.Step[] 
+                    { bean_taskletStep });
 
                         getBean_simpleJob().setSteps(steps);
 
